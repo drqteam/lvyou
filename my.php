@@ -18,5 +18,7 @@ echo '用户ID：',$userid,'<br />';
 echo '用户名：',$username,'<br />';
 echo '邮箱：',$row['email'],'<br />';
 echo '注册日期：',date("Y-m-d", $row['regdate']),'<br />';
-echo '<a href="login.php?action=logout">注销</a> 登录<br />';
+echo '<a href="login.php?action=logout">注销</a> 登录<br />';;
+echo '<a href="visit.html">选择景点</a> <br />';
+echo '<a href="team.php">选择驴友</a> <br />';
 ?>
