@@ -7,28 +7,34 @@ ob_start();
 <title>首页</title>
 </head>
 <body>
-<table border="1" width="100%" cellspacing="0" cellpadding="0" bordercolorlight="#FF9933" bordercolordark="#FFFFFF" bgcolor="#FFFFFF">
+<table border="0.1" width="100%" cellspacing="0" cellpadding="0" bordercolorlight="#FF9933" bordercolordark="#FFFFFF" bgcolor="#FFFFFF">
+<tr>
+		  <td width="100%" bgcolor="#97DDFF" height="24" align="right"> <a href="Admin/Login.php"  target=_blank><b><font color="#000000">管理员点此登录</font></b></a> </td>
+      </tr>  
       <tr>         
-          <td width="100%" height="24" bgcolor="#63CFFF" align="center">
-			<font color="#FF0000"><b>站内公告</b></font></td>  
+          <td width="100%" height="24" bgcolor="E1F5FF" align="center">
+			<font color="#856363"><b>路线推荐</b></font></td>  
       </tr>         
 <?PHP  
-  session_start();
+  if(!isset($_SESSION)){
+    session_start();
+  } 
   include('Class\Bulletin.php');
   $obj = new Bulletin();
   $results = $obj->GetBulletinlist();
   //显示新闻信息     
 ?>
         <tr>         
-          <td width="100%" bgcolor="#E1F5FF" height="70" valign="top">      
+          <td width="100%" bgcolor="E1F5FF" height="70" valign="top">      
 <?PHP  
   $exist = false;
   //按时间显示最新的10条新闻信息
   for ($i=1; $i<=10; $i++)
   {
-	$exist = true;
+	
     if($row = $results->fetch_row())
     {
+      $exist = true;
       $title=$row[1];
       //显示新闻标题以及网页链接
       if(strlen($title)>11)
@@ -36,25 +42,24 @@ ob_start();
         $title=substr($title,0,11);
 ?><a href="BulletinView.php?id=<?PHP echo($row[0]); ?>" target=_blank><?PHP echo $title; ?>……</a>         
 <?PHP      
-	  }
+      }
       else
       {
 ?>            
          <a href="BulletinView.php?id=<?PHP echo($row[0]); ?>" target=_blank><?PHP echo($title); ?></a> 
  <?PHP      
-      } 
+       } 
 ?><br> 
 <?PHP    
    }  
 ?>
-         </td>         
-        </tr>
-<?PHP  }  
+         
+<?PHP  }
        if(!$exist)
        {
 ?>         
       <tr>         
-          <td width="100%" height="70" bgcolor="#E1F5FF">暂且没有公告 </td>     
+          <td width="100%" height="70" bgcolor="#E1F5FF">没有路线推荐</td>     
       </tr>             
 <?PHP  }
   include('Class\Users.php');
@@ -75,15 +80,15 @@ ob_start();
           <td width="100%" height="18" bgcolor="#E1F5FF">
             <table border="0" cellspacing="1" width="100%">
               <tr>
-                <td width="100%" bgcolor="#E1F5FF">用户账号:<?PHP echo($objUser->UserId); ?><br>
-				居住公寓：<?PHP echo($objUser->Address); ?><br>         
-                <br>手机号码：<?PHP echo($objUser->Phone); ?>
-				</td>         
+                <td width="100%" bgcolor="#E1F5FF">用户账号:<?PHP echo($objUser->UserId); ?><br><br>
+				联系地址：<?PHP echo($objUser->Address); ?><br>         
+                <br>E-mail：<?PHP echo($objUser->Email); ?>
+				</td>       
               </tr> 
               <tr>
                 <td width="100%" align="center" bgcolor="#E1F5FF">
-                <a href='user\UserView.php?uid=<?PHP echo($objUser->UserId); ?>' target="_blank">我的商品</a>
-				&nbsp;&nbsp;<a href="LoginExit.php" onclick="return newswin(this.href)">退出登录</a>
+                <a href='user/my.htm' target="_blank"><b><font color="">我的用户中心</b></a>
+				&nbsp;&nbsp;<a href="LoginExit.php" onclick="return newswin(this.href)"><b><font color="#8E236B">退出登录</b></a>
                 </td>         
               </tr>     
             </table>         
@@ -94,29 +99,30 @@ ob_start();
   else
 {
 ?>
+
 		<tr>
-		  <td width="100%" bgcolor="#97DDFF" height="24" align="center"> <a href="Admin/Login.php"  target=_blank><b><font color="#000000">管理员</font></b></a> </td>
-        </tr>  
-		<tr>
-		  <td width="100%" bgcolor="#97DDFF" height="24" align="center"> <a href="index.php"  target=_blank>
-		  <b><font color="#000000">用 户</font></b></a> </td>
+		  <td width="50%" bgcolor="#00FF7F" height="24" align="center">
+		  <b><font color="#000000">用户登录</font></b></td>
         </tr> 
         <tr>         
-          <td width="100%" height="18" bgcolor="#E1F5FF">         
-            <table border="0" cellspacing="1" height="58">         
+          <td width="50%" height="18" bgcolor="#E1F5FF">         
+            <table border="0.1" width="100%" cellspacing="0" cellpadding="0" bordercolorlight="#FF9933" bordercolordark="#FFFFFF" bgcolor="#FFFFFF">        
               <tr>         
-                <td width="100%" bgcolor="#E1F5FF" height="35">         
+                <td width="100%" bgcolor="#BC8F8F" height="35" align="center">
+                  <b>      
                   <form method="POST" action="putSession.php">         
                     账号: 
                     <input type="text" name="loginname" size="18" value="">         
                     <br>密码: 
-                    <input type="password" name="password" size="18" value="">                            
+                    <input type="password" name="password" size="18" value="">                           
                     <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="登&nbsp;&nbsp;录" name="B1">
                     &nbsp;&nbsp;
                     <tr>
-					  <td align="center"> <a href="user/UserAdd.php"  target=_blank>用户注册</a></td>
+                                          <td width="100%" bgcolor="#BC8F8F" height="35" align="right">
+					  <a href="user/UserAdd.php"  target=_blank><b><font color="#000000">用户注册</b></a></td>
 					</tr>
-                  </form>         
+                  </form>  
+                  </b>       
                 </td>         
               </tr>         
             </table>         

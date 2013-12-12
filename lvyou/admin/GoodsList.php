@@ -1,7 +1,10 @@
 <?PHP 
 include('isAdmin.php'); 
 ?>
+<html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>景点管理</title>
 <link href="../style.css" rel="stylesheet">
 </head>
 <?PHP 
@@ -10,20 +13,20 @@ include('isAdmin.php');
 ?>
 <body>
 <table border="1" width="100%" cellspacing="0" bordercolorlight="#C0C0C0" bordercolordark="#FFFFFF">
-<tr><td bgcolor=#66CCFF height=24 colspan=2 align="center"><b>商品信息</b></td></tr></table>
+<tr><td bgcolor=#66CCFF height=24 colspan=2 align="center"><b>景区信息</b></td></tr></table>
 <table border=1 width=100% cellspacing=0 bordercolorlight="#C0C0C0" bordercolordark="#FFFFFF">
 <tr  bgcolor="#CCFFFF">
-<td align=center width="20%">商品名称</td>
-<td align=center width="20%">卖家</td>
+<td align=center width="20%">景区名称</td>
+<td align=center width="20%">景区信息</td>
 <td align=center width="20%">价格</td>
-<td align=center width="20%">是否结束</td>
-<td align=center width="20%">操作</td>
+<td align=center width="20%">开放时间</td>
+<td align=center width="20%">修改</td>
 </tr>
 <?PHP 
   include('..\Class\Goods.php');
+  print 1;
   $obj = new Goods();
-  $results = $obj->GetGoodslist(" WHERE TypeId=" . $itype);
-  include('..\Class\Users.php');
+  $results = $obj->GetGoodslist;
   while($row = $results->fetch_row())
   {
     $m=$m+1;

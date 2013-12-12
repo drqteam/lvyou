@@ -13,35 +13,19 @@
     <td width="100%" height="6"></td>
   </tr>
   <tr>
-    <td width="100%" height="6"><font color="#000080">系统设置</font></td>
+    <td width="100%" height="6"><font color="#000080">系统管理</font></td>
   </tr>
   <tr>
     <td width="100%"   height="6">&nbsp;<font color="#0000FF">  
-      <a href="TypeList.php" target="main">商品分类</a></font></td>
+      <a href="UserView.php" target="main">景区信息管理</a></font></td>
   </tr>
   <tr>
     <td width="100%"  height="6">&nbsp;<font color="#0000FF">
-    <a href="BulletinList.php">公告管理</a></font></td>
+    <a href="BulletinList.php">首页推荐路线管理</a></font></td>
   </tr>
   <tr>
     <td width="100%"  height="6">&nbsp;</font></td>
   </tr>
-  <tr>
-    <td width="100%" height="6"><font color="#000080">商品管理</font></td>
-  </tr>
-<?PHP
-  include('..\Class\GoodsType.php');
-  $objType = new GoodsType();
-  $results = $objType->GetGoodsTypelist();
-  while($row = $results->fetch_row())  {
-?>
-  <tr>
-    <td width="100%"  height="6">&nbsp;<font color="#0000FF">  
-      <a href="GoodsList.php?type=<?PHP echo($row[0]); ?>" target="main"><?PHP   echo($row[1]); ?></a></font></td>
-  </tr>
-<?PHP 
-    } 
-?>
   <tr>
     <td width="100%"  height="6">&nbsp;</font></td>
   </tr>

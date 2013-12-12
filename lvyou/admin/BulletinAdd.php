@@ -3,18 +3,18 @@ include('isAdmin.php');
 ?>
 <html>
 <head>
-<title>网上书城公告</title>
+<title>旅游路线推荐</title>
 <link href=../style.css rel=STYLESHEET type=text/css>
 <script language="javascript">
   function checkFields()
   {
     if (myform.title.value=="") {
-       alert("公告题目不能为空");
+       alert("标题不能为空");
        myform.title.onfocus();
        return false;
     }
     if (myform.content.value=="") {
-       alert("公告内容不能为空");
+       alert("内容不能为空");
        myform.content.onfocus();
        return false;
     }
@@ -32,11 +32,11 @@ body {
 <form name="myform" method="POST" action="BulletinSave.php?action=add" OnSubmit="return checkFields()">
         <table border="0" width="100%" cellspacing="1">
           <tr>
-            <td width="100%">公告标题
+            <td width="100%">标题
             <input type="text" name="title" size="20"></td>
           </tr>
           <tr>
-            <td width="100%">公告内容</td>
+            <td width="100%">内容</td>
           </tr>
           <tr>
             <td width="100%"><textarea rows="12" name="content" cols="55"></textarea></td>

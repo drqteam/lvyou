@@ -35,7 +35,7 @@ include('isAdmin.php');
     $objBul->update($id);
   } 
 
-  print "<h3>公告成功保存</h3>";
+  print "<h3>成功保存</h3>";
 ?>
 </body>
 <script language="javascript">

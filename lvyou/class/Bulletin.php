@@ -12,7 +12,7 @@ Class Bulletin
 
   function __construct() {
 	// 连接数据库
-	$this->conn = mysqli_connect("localhost", "root", "", "2shou"); 
+	$this->conn = mysqli_connect("localhost", "root", "1", "2shou"); 
 	mysqli_query($this->conn, "SET NAMES gbk");
   }
 		

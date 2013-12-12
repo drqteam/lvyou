@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>查看商品信息</title>
+<title>查看景点信息</title>
 <link href=style.css rel=STYLESHEET type=text/css>
 </head>
 <body>
@@ -8,17 +8,12 @@
 <?PHP 
   include('Class\Goods.php');
   $gid=$_GET["gid"];
-  $obj = new Goods();
+  $obj = new Scenic();
   $obj->Add_ClickTimes($gid);  // 增加点击次数
-  $obj->GetGoodsInfo($gid);  // 获取商品信息
+  $obj->GetScenicInfo($gid);  // 获取商品信息
   include('Class\Users.php');
   //读取卖家信息
-  $objUser = new Users();
-  $objUser->GetUsersInfo($obj->OwnerId);
   //读取商品类型
-  include('Class\GoodsType.php');
-  $objType = new GoodsType();
-  $objType->GetGoodsTypeInfo($obj->TypeId);
 ?>
 <center><?PHP if($obj->ImageURL=="")
 {
@@ -36,25 +31,14 @@
 </center>
 <table align=center cellpadding=0 cellspacing=0 width=90% border=1 bordercolorlight="#4DA6FF" bordercolordark="#ECF5FF">
 <tr><td align=center width=100% colspan=3 bgcolor=#eeeeee height=28><font color=#0000ff>
-	商品信息</font></td></tr>
-<tr><td align=right width=25% bgcolor=#eeeeee>商品名称：</td><td align=left><?PHP echo($obj->GoodsName); ?></td></tr>
-<tr><td align=right bgcolor=#eeeeee>所 有 者：</td><td align=left><?PHP echo($objUser->Name); ?></td></tr>
-<tr><td align=right bgcolor=#eeeeee>所属分类：</td><td align=left>
-<?PHP echo($objType->TypeName); ?>
+	景点信息</font></td></tr>
+<tr><td align=right width=25% bgcolor=#eeeeee>景点名称：</td><td align=left><?PHP echo($obj->ScenicName); ?></td></tr>
 </td></tr>
-<tr><td align=right bgcolor=#eeeeee>添加时间：</td><td align=left>
-	<?PHP echo($obj->StartTime); ?></td></tr>
-<tr><td align=right bgcolor=#eeeeee>商品价格：</td><td align=left><?PHP echo($obj->Price); ?></td></tr>
-<tr><td align=right bgcolor=#eeeeee>新旧程度：</td><td align=left><?PHP echo($obj->OldNew); ?>&nbsp;</tr>
-<tr><td align=right bgcolor=#eeeeee>保　　修：</td><td align=left><?PHP echo($obj->Repaired); ?>&nbsp;</td></tr>
-<tr><td align=right bgcolor=#eeeeee>发　　票：</td><td align=left><?PHP echo($obj->Invoice); ?>&nbsp;</td></tr>
-<tr><td align=right bgcolor=#eeeeee>运　　费：</td><td align=left><?PHP echo($obj->Carriage); ?>&nbsp;</tr>
-<tr><td align=right bgcolor=#eeeeee>支付方式：</td><td align=left><?PHP echo($obj->PayMode); ?>&nbsp;</td></tr>
-<tr>
-	<td align=right bgcolor=#eeeeee>送货方式：</td><td align=left><?PHP echo($obj->DeliverMode); ?>&nbsp;</td>
-</tr>
-<tr><td align=right bgcolor=#eeeeee>商品描述：</td>
-<td align=left><textarea rows="2" name="adetail" cols="40"><?PHP echo($obj->GoodsDetail); ?></textarea></td></tr>
+<tr><td align=right bgcolor=#eeeeee>景点价格：</td><td align=left><?PHP echo($obj->Price); ?></td></tr>
+<tr><td align=right bgcolor=#eeeeee>开门时间：</td><td align=left><?PHP echo($obj->StartTime); ?>&nbsp;</td></tr>
+<tr><td align=right bgcolor=#eeeeee>优 先 级：</td><td align=left><?PHP echo($obj->Priority); ?>&nbsp;</tr>
+<tr><td align=right bgcolor=#eeeeee>景点描述：</td>
+<td align=left><textarea rows="2" name="adetail" cols="40"><?PHP echo($obj->ScenicDetail); ?></textarea></td></tr>
 </table>
 </form>
 </center>

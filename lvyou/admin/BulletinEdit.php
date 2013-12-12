@@ -9,12 +9,12 @@ include('isAdmin.php');
   function checkFields()
   {
     if (myform.title.value=="") {
-       alert("公告题目不能为空");
+       alert("题目不能为空");
        myform.title.onfocus();
        return false;
     }
     if (myform.content.value=="") {
-       alert("公告内容不能为空");
+       alert("内容不能为空");
        myform.content.onfocus();
        return false;
     }

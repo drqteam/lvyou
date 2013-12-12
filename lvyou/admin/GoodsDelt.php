@@ -1,23 +1,38 @@
-<?PHP 
-include('isAdmin.php'); 
-?>
+
 <html>
 <head>
-<title>删除旧物信息</title>
+<link href=../style.css rel=STYLESHEET type=text/css>
 </head>
 <body>
-<?PHP
-  //只有管理员有强制删除旧物的权限
-  include('..\class\Goods.php');
+<?PHP  
+  //从数据库中批量删除信息
+  //读取要删除的编号
+  include('..\Class\Goods.php');
   $gid=$_GET["gid"];
-  $obj = new Goods();
+  $obj = new Scenic();
   $obj->delete($gid);
-  print("<h3>商品信息成功删除</h3>");
+  print "删除成功!";
 ?>
+</form>
 </body>
 <script language="javascript">
-  // 刷新父级窗口，延迟此关闭
   opener.location.reload();
   setTimeout("window.close()",600);
 </script>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
