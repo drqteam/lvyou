@@ -1,0 +1,60 @@
+﻿
+<html>
+<head>
+<body background="../images/background.jpg">
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<title>搜索景点</title>
+  <style type="text/css">
+    html{font-size:12px;}
+	fieldset{width:520px; margin: 0 auto;}
+	legend{font-weight:bold; font-size:14px;}
+	label{float:left; width:70px; margin-left:10px;}
+	.left{margin-left:80px;}
+	.input{width:150px;}
+	span{color: #666666;}
+  </style>
+<script language=JavaScript>
+<!--
+
+function InputCheck(RegForm)
+{
+  if (RegForm.targetname.value == "")
+  {
+    alert("不能为空");
+    RegForm.targetname.focus();
+    return (false);
+  }
+
+
+}
+
+//-->
+</script>
+</head>
+<a href="javascript:;">
+     <p style="text-align:center">  <img src="images/title.jpg" style="width:600px;height:250px;" /></p>
+</a>
+<div>
+<fieldset>
+<legend>景点搜索</legend>
+<form name="RegForm" method="post" action="visit.php" onSubmit="return InputCheck(this)">
+<p>
+<label for="prize" class="label">旅游预算</label>
+<input id="prize" name="prize" type="text" class="input" />
+<span>(必填)</span>
+</p>
+<p>
+<label for="prize" class="label">景点名</label>
+<input id="name" name="name" type="text" class="input" />
+
+</p>
+
+<p>
+<input type="submit" name="submit" value="  搜索 " class="left" />
+</p>
+</form>
+</fieldset>
+</div>
+<body>
+</body>
+</html>

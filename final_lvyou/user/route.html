@@ -1,0 +1,37 @@
+<body background="../images/background.jpg">
+<div id="search">
+<fieldset style="width:730px; margin:0px auto" >
+<legend>搜索推荐路线</legend>
+ 	<form method="post" id="searchform" action="show_route.php">
+ 	<div>
+
+	<p>
+	<label for="num" class="label">景点个数</label>
+	<select name="num">
+<option value="1" selected="selected">一</option>
+<option value="2">二</option>
+<option value="3">三</option>
+<option value="4">四</option>
+</select>
+	</p>
+ 	<p>
+	<label for="sname" class="label">景点名称</label>
+	<input id="sname1" name="sname1" type="text" class="input" />
+	<input id="sname2" name="sname2" type="text" class="input" />
+	<input id="sname3" name="sname3" type="text" class="input" />
+	<input id="sname4" name="sname4" type="text" class="input" />
+	<span>按序填好</span>
+	
+	</p>
+<p>
+	<label for="sname" class="label">预算</label>
+	<input id="price" name="price" type="text" class="input" />
+	</p>
+<p>
+<input type="submit" name="submit" value="  提交  " class="left" />
+</p>
+ 	</div>
+ 	</form>
+	</fieldset>
+ 	</div>
+</body>
